@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #05070d;
+  --foreground: #e6eefc;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  -webkit-font-smoothing: antialiased;
+}
+
+@layer components {
+  .glass {
+    @apply bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl;
+  }
+  .neon-card {
+    @apply transition-all duration-500 hover:shadow-neon-blue hover:border-electric/50;
+  }
+  .gradient-border {
+    background: linear-gradient(90deg, #00b4ff, #ff2d55, #00b4ff);
+    background-size: 200% 200%;
+  }
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-8 py-3 rounded-full font-semibold bg-electric text-midnight hover:shadow-neon-blue transition-all duration-300;
+  }
+  .btn-outline {
+    @apply inline-flex items-center justify-center px-8 py-3 rounded-full font-semibold border border-electric/60 text-electric hover:bg-electric/10 hover:shadow-neon-blue transition-all duration-300;
+  }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.reveal.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
